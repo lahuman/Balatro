@@ -1,0 +1,86 @@
+.card {
+  width: 100px;
+  height: 140px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  position: relative;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.card.red {
+  color: #ff5252;
+}
+
+.card.black {
+  color: #ffffff;
+}
+
+.rank.top {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.rank.bottom {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  transform: rotate(180deg);
+}
+
+.suit {
+  font-size: 48px;
+  text-align: center;
+  align-self: center;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
+
+.card.selected {
+  transform: translateY(-20px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.card.deal-in {
+  animation: deal-in 0.5s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes deal-in {
+  from { transform: translateY(-100px) rotate(10deg); opacity: 0; }
+  to { transform: translateY(0) rotate(0); opacity: 1; }
+}
+
+.card.discarding {
+  animation: discard-out 0.5s ease-out forwards;
+}
+
+@keyframes discard-out {
+  from { transform: translateY(0); opacity: 1; }
+  to { transform: translateY(100px) rotate(-10deg); opacity: 0; }
+}
+
+@media (max-width: 768px) {
+  .card { width: 80px; height: 112px; font-size: 20px; padding: 8px; }
+  .suit { font-size: 36px; }
+}
+
+@media (max-width: 480px) {
+  .card { width: 60px; height: 84px; font-size: 16px; padding: 5px; border-radius: 5px; }
+  .rank.top { top: 5px; left: 5px; }
+  .rank.bottom { bottom: 5px; right: 5px; }
+  .suit { font-size: 24px; }
+}

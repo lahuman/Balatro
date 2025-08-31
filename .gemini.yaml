@@ -1,0 +1,10 @@
+# <project-root>/.gemini.yaml
+
+mcpServers:
+  serena-local:          # 원하는 이름(예: serena, local-serena 등)
+    url: http://127.0.0.1:24282/dashboard/index.html   # 로컬에서 실행 중인 Serena URL
+    # (옵션) 별칭을 지정해 두면 `gemini mcp start --server serena-local` 처럼 명시적으로 호출할 수 있습니다.
+    # 필요하면 추가 옵션(예: context, enable-web-dashboard 등)을 여기에 넣어도 됩니다.
+
+defaultMcpServer: serena-local   # 기본 서버로 설정
+

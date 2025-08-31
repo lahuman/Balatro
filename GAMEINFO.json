@@ -1,0 +1,54 @@
+{
+  "Balatro": {
+    "basic_overview": {
+      "genre": ["roguelite", "deckbuilding", "poker-based"],
+      "objective": "Use limited hands and discards to build poker hands that score enough chips × multiplier to beat Blind requirements and progress through rounds.",
+      "core_formula": "score = chips × multiplier",
+      "end_condition": "If you run out of hands/discards and cannot reach the required score, the run ends."
+    },
+    "game_structure": {
+      "run": "A full playthrough consisting of multiple Antes.",
+      "ante": {
+        "description": "Each Ante contains multiple Blinds the player must clear to progress.",
+        "blinds": {
+          "small_blind": {
+            "type": "optional",
+            "difficulty": "low",
+            "objective": "Lower chip requirement"
+          },
+          "big_blind": {
+            "type": "optional",
+            "difficulty": "medium",
+            "objective": "Moderate chip requirement"
+          },
+          "boss_blind": {
+            "type": "mandatory",
+            "difficulty": "high",
+            "objective": "Must be cleared to proceed to the next Ante"
+          }
+        }
+      },
+      "progression": {
+        "ante_range": "Ante 1 → Ante 8 (default run)",
+        "endless_mode": "After Ante 8, game can continue indefinitely with escalating difficulty"
+      }
+    },
+    "round_mechanics": {
+      "hand_limit": 5,
+      "discard_limit": 3,
+      "round_flow": [
+        "Draw hand up to hand limit",
+        "Choose cards to play → system evaluates highest valid poker hand",
+        "Calculate score = hand_chips × hand_multiplier",
+        "Subtract earned score from Blind requirement",
+        "If Blind requirement is cleared → proceed to next Blind or shop",
+        "If all Blinds in Ante cleared → advance to next Ante"
+      ],
+      "scoring_examples": {
+        "pair": { "chips": 10, "multiplier": 2, "score": 20 },
+        "three_of_a_kind": { "chips": 30, "multiplier": 3, "score": 90 },
+        "straight_flush": { "chips": 100, "multiplier": 8, "score": 800 }
+      }
+    }
+  }
+}
